@@ -1,5 +1,106 @@
-<footer>
-      <p>Acme Web Deisgn, Copyright &copy; 2019</p>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoTrans - Traduction Vidéo Facile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>VideoTrans</h1>
+            </div>
+            <nav class="cta-nav">
+                <a href="#tarifs" class="button cta-green">Forfaits Pro (5000 FCFA/mois)</a>
+                <a href="#contact" class="button cta-blue">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-text">
+                <h2>Traduisez vos Vidéos, Touchez le Monde 🌍</h2>
+                <p>De l'Anglais au Français : doublage IA, Voix Pro, et Sous-titres incrustés.</p>
+            </div>
+
+            <div class="translation-box">
+                
+                <div id="drop-zone" class="drop-zone">
+                    <p>Déposez votre fichier vidéo ici</p>
+                    <p>ou</p>
+                    <input type="file" id="video-upload" accept="video/*" hidden>
+                    <label for="video-upload" class="button cta-red big-button">
+                        Sélectionner un Fichier Vidéo
+                    </label>
+                </div>
+
+                <div class="translation-options">
+                    <select id="source-language">
+                        <option value="auto">Langue Source (Détection Auto)</option>
+                        <option value="en">Anglais</option>
+                        <option value="fr">Français</option>
+                    </select>
+                    
+                    <select id="target-language">
+                        <option value="fr">Traduire Vers : Français</option>
+                        <option value="en">Traduire Vers : Anglais</option>
+                    </select>
+
+                    <select id="voice-style">
+                        <option value="standard-f">Voix Standard (Féminine)</option>
+                        <option value="pro-f">Voix PRO (Féminine - IA Neurale)</option>
+                        <option value="pro-m">Voix PRO (Masculine - IA Neurale)</option>
+                    </select>
+                </div>
+
+                <button class="button cta-red start-button">
+                    Lancer la Traduction
+                </button>
+            </div>
+            
+        </section>
+        
+        <section id="tarifs" class="pricing-section">
+            <h2>💰 Tarifs : Choisissez votre Croissance</h2>
+            <div class="pricing-table">
+                <div class="plan basic-plan">
+                    <h3>Utilisation Unique</h3>
+                    <p class="price">1 000 FCFA</p>
+                    <ul>
+                        <li>✅ 1 Traduction Complète</li>
+                        <li>❌ Voix Standard uniquement</li>
+                        <li>❌ Sous-titres non incrustés</li>
+                    </ul>
+                    <a href="#" class="button cta-red">Acheter 1 Traduction</a>
+                </div>
+                
+                <div class="plan pro-plan">
+                    <h3>✨ Forfait PRO</h3>
+                    <p class="price">5 000 FCFA / mois</p>
+                    <ul class="highlight">
+                        <li>✅ **20 Traductions** / mois (Maitrisez vos coûts !)</li>
+                        <li>✅ Voix **PRO** (IA Neurale)</li>
+                        <li>✅ **Sous-titres Incrustés** (Prêt-à-publier)</li>
+                        <li>✅ Traitement Prioritaire</li>
+                    </ul>
+                    <a href="#" class="button cta-green">S'abonner Maintenant</a>
+                </div>
+            </div>
+            <p class="note">Pour les créateurs réguliers, le Forfait Pro coûte moins de 250 FCFA par vidéo !</p>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="copyright">
+            <p>&copy; 2025 VideoTrans. Tous droits réservés.</p>
+        </div>
     </footer>
-  </body>
+
+    <script src="script.js"></script>
+</body>
 </html>
+<!--  -->
