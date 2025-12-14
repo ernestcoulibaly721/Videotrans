@@ -1,0 +1,202 @@
+/* --------------------------------------------------------------------------
+   STYLES GÉNÉRAUX ET TYPOGRAPHIE
+   -------------------------------------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Fond très clair */
+    color: #333;
+}
+
+.header-container, .footer-container, .hero-section {
+    /* Utilisé pour centrer et limiter la largeur du contenu */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --------------------------------------------------------------------------
+   BOUTONS ET ÉLÉMENTS INTERACTIFS
+   -------------------------------------------------------------------------- */
+.button {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+/* Bouton PRINCIPAL ROUGE VIF (Inscription, Action) */
+.cta-red {
+    background-color: #FF4B4B; /* Rouge vif pour l'attraction */
+    color: white;
+}
+
+.cta-red:hover {
+    background-color: #CC3D3D;
+}
+
+/* Bouton BLEU FONCÉ (Contact, etc.) */
+.cta-blue {
+    background-color: #003366; /* Bleu foncé, couleur principale */
+    color: white;
+}
+
+.cta-blue:hover {
+    background-color: #004488;
+}
+
+/* Bouton VERT (Lancer la traduction) */
+.cta-green {
+    background-color: #4CAF50; /* Vert pour valider/lancer l'action */
+    color: white;
+}
+
+.cta-green:hover {
+    background-color: #45a049;
+}
+
+
+/* --------------------------------------------------------------------------
+   HEADER (En-tête)
+   -------------------------------------------------------------------------- */
+.main-header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #003366; /* Le titre en bleu foncé */
+    margin: 0;
+    font-size: 28px;
+}
+
+.cta-nav a {
+    margin-left: 10px;
+}
+
+
+/* --------------------------------------------------------------------------
+   SECTION PRINCIPALE (HERO)
+   -------------------------------------------------------------------------- */
+.hero-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #003366; /* Fond de la section principale en bleu foncé */
+    color: white;
+}
+
+.hero-text h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+/* Zone de Dépôt (Drop Zone) */
+.translation-box {
+    background-color: #ffffff;
+    color: #333;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block; /* Pour que la boîte ne prenne pas toute la largeur */
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.drop-zone {
+    border: 3px dashed #ccc;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.drop-zone p {
+    margin: 5px 0;
+}
+
+.big-button {
+    font-size: 1.1em;
+    padding: 12px 25px;
+}
+
+.translation-options select {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.start-button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 1.2em;
+}
+
+
+/* --------------------------------------------------------------------------
+   FOOTER (Pied de page)
+   -------------------------------------------------------------------------- */
+.main-footer {
+    background-color: #222; /* Fond sombre pour le pied de page */
+    color: #ccc;
+    padding: 40px 0 10px;
+    font-size: 0.9em;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Pour s'adapter aux petits écrans */
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-top: 0;
+    border-bottom: 2px solid #4CAF50; /* Ligne verte pour la séparation */
+    padding-bottom: 5px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    line-height: 1.8;
+}
+
+.footer-section ul li a:hover {
+    color: #FF4B4B; /* Passage en rouge vif au survol */
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
