@@ -1,4 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- LIGNE DE VÉRIFICATION 1 : Le script se charge-t-il ? ---
+    alert("Vérification 1 : Le script a démarré."); 
+    
+    const dropZone = document.getElementById('drop-zone');
+    const videoUpload = document.getElementById('video-upload');
+    const startButton = document.querySelector('.start-button');
+
+    // --- LIGNE DE VÉRIFICATION 2 : Le navigateur trouve-t-il le champ de fichier ? ---
+    if (videoUpload) {
+        alert("Vérification 2 : Élément de sélection trouvé !");
+    } else {
+        alert("ERREUR CRITIQUE : Élément 'video-upload' NON trouvé dans le HTML.");
+    }
+
+    let videoFile = null;
+    
+    // ... le reste du code JavaScript continue ici ...
+    document.addEventListener('DOMContentLoaded', () => {
     const dropZone = document.getElementById('drop-zone');
     const videoUpload = document.getElementById('video-upload');
     const startButton = document.querySelector('.start-button');
