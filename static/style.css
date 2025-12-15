@@ -1,0 +1,220 @@
+/* Variables de base */
+:root {
+    --color-primary: #1e3a8a; /* Bleu foncé */
+    --color-secondary: #dc2626; /* Rouge */
+    --color-accent: #10b981; /* Vert */
+    --color-background: #f3f4f6; /* Gris clair */
+    --color-text: #1f2937; /* Gris foncé */
+}
+
+/* Styles généraux */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.main-header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo h1 {
+    color: var(--color-primary);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.cta-nav a {
+    margin-left: 10px;
+}
+
+/* Styles des Boutons */
+.button {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.cta-green {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.cta-green:hover {
+    background-color: #059669;
+}
+
+.cta-blue {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.cta-blue:hover {
+    background-color: #1e40af;
+}
+
+.cta-red {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.cta-red:hover {
+    background-color: #b91c1c;
+}
+
+.big-button {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+}
+
+/* Section Héro */
+.hero-section {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+/* Zone de Traduction */
+.translation-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.drop-zone {
+    border: 2px dashed #9ca3af;
+    border-radius: 8px;
+    padding: 40px 20px;
+    margin-bottom: 20px;
+    background-color: #f9fafb;
+}
+
+.translation-options {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.translation-options select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d1d5db;
+}
+
+/* Section Tarifs */
+.pricing-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: white;
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.plan {
+    flex: 1;
+    max-width: 350px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.basic-plan {
+    border-top: 5px solid var(--color-primary);
+}
+
+.pro-plan {
+    border-top: 5px solid var(--color-accent);
+    background-color: #ecfdf5; /* Vert très clair */
+}
+
+.plan h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-secondary);
+    margin: 10px 0 20px;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+}
+
+.plan li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #e5e7eb;
+}
+
+.plan a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Footer */
+.main-footer {
+    padding: 20px;
+    background-color: var(--color-text);
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Styles pour le mobile (rendre la page responsive) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .cta-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .translation-options {
+        flex-direction: column;
+    }
+    .pricing-table {
+        flex-direction: column;
+        align-items: center;
+    }
+    }
+                               
