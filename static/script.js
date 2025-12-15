@@ -71,37 +71,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. Gestion du Bouton de Traduction (Simulation) ---
 
+        // --- 2. Gestion du Bouton de Traduction (ENVOI RÉEL) ---
+
     startButton.addEventListener('click', () => {
         if (!videoFile) {
             alert("Veuillez d'abord sélectionner un fichier vidéo.");
             return;
         }
+        
+        startButton.textContent = "Traduction en cours... Veuillez patienter.";
+        startButton.disabled = true;
 
         const sourceLang = document.getElementById('source-language').value;
         const targetLang = document.getElementById('target-language').value;
         const voiceStyle = document.getElementById('voice-style').value;
         
-        // Affichage des options dans la console
-        console.log("Démarrage de la traduction...");
-        console.log(`Fichier: ${videoFile.name}`);
-        console.log(`Source: ${sourceLang}, Cible: ${targetLang}, Voix: ${voiceStyle}`);
+        const formData = new FormData();
+        formData.append('video', videoFile); // Nom 'video' correspond à request.files['video'] dans app.py
+        formData.append('source_lang', sourceLang);
+        formData.append('target_lang', targetLang);
+        formData.append('voice_style', voiceStyle);
 
-        // Changement de l'état du bouton pour indiquer le traitement
-        startButton.textContent = "Traduction en cours... Veuillez patienter.";
-        startButton.disabled = true;
-
-        // ** SIMULATION DE L'ENVOI AU SERVEUR **
-        
-        // Simuler un délai de traitement de 3 secondes
-        setTimeout(() => {
-            alert(`Simulation de réussite : Traduction lancée pour ${videoFile.name} vers ${targetLang}.`);
-            
-            // Rétablissement de l'état initial
+        // Envoi des données au serveur Flask via la nouvelle route /translate
+        fetch('/translate', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(`SUCCESS : Le fichier a été reçu par le serveur. Le lien de téléchargement simulé est : ${data.download_url}`);
+                
+                // Mettre à jour la zone de dépôt pour afficher le lien de téléchargement
+                dropZone.innerHTML = `<p>✅ Traduction lancée !</p><a href="${data.download_url}" class="button cta-green big-button">Télécharger la Vidéo Traduite (Simulée)</a>`;
+                
+            } else {
+                alert(`ERREUR : ${data.error}`);
+            }
+        })
+        .catch(error => {
+            alert("Erreur de connexion avec le serveur.");
+            console.error('Erreur:', error);
+        })
+        .finally(() => {
             startButton.textContent = "Lancer la Traduction";
-            // Laisse le bouton désactivé jusqu'à ce qu'un nouveau fichier soit sélectionné
-            // startButton.disabled = false; 
-            
-        }, 3000);
+        });
+    });
+}); // N'oubliez pas cette parenthèse et accolade de fermeture si elle fait partie de votre fichier !
+    
+    
     });
 });
         
