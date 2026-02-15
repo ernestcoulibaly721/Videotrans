@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Annonce | Yak Auto-Immo</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #eee; }
+        .form-box { background: white; padding: 20px; border-radius: 10px; max-width: 400px; margin: auto; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; background: #007bff; color: white; border: none; padding: 15px; border-radius: 5px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Nouvelle Annonce</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <label>Nom du produit (ex: Toyota Prado) :</label>
+            <input type="text" name="titre" required>
+            
+            <label>Prix (en FCFA) :</label>
+            <input type="text" name="prix" required>
+            
+            <label>Photo :</label>
+            <input type="file" name="photo" accept="image/*" required>
+            
+            <button type="submit">Publier sur la vitrine</button>
+        </form>
+        <br>
+        <a href="/">⬅ Retour à la vitrine</a>
+    </div>
+</body>
+</html>
