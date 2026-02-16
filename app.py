@@ -1,24 +1,46 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Response
+from functools import wraps
 
 app = Flask(__name__)
 
-# Dossier pour stocker les photos
+# --- CONFIGURATION SÉCURITÉ ---
+# Tu peux changer 'admin' et 'yak2026' par ce que tu veux
+USER_ADMIN = "admin"
+PASSWORD_ADMIN = "yak2026"
+
+def check_auth(username, password):
+    return username == USER_ADMIN and password == PASSWORD_ADMIN
+
+def authenticate():
+    return Response(
+    'Accès refusé. Veuillez entrer les identifiants corrects.', 401,
+    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args, **kwargs)
+    return decorated
+# ------------------------------
+
 UPLOAD_FOLDER = 'static/uploads'
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
-# Liste pour stocker tes annonces (Vêtements, Voitures, etc.)
 annonces = []
 
 @app.route('/')
 def index():
     return render_template('index.html', annonces=annonces)
 
-# La correction est ici : on ajoute methods=['GET', 'POST']
+# On ajoute @requires_auth pour protéger cette page
 @app.route('/admin', methods=['GET', 'POST'])
+@requires_auth
 def admin():
     if request.method == 'POST':
         titre = request.form.get('titre')
@@ -29,7 +51,6 @@ def admin():
             filename = file.filename
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             
-            # On ajoute l'article à la liste
             annonces.append({
                 'titre': titre,
                 'prix': prix,
